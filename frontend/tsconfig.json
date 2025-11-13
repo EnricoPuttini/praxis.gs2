@@ -27,13 +27,15 @@
     "paths": {
       "@/*": [
         "./*"
-      ] 
+      ]
     }
   },
   "include": [
-    "next-env.d.ts",
+    "frontend/next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "frontend/components/.next/types/**/*.ts",
+    "frontend/components/.next/dev/types/**/*.ts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
