@@ -17,7 +17,6 @@ if not RAPIDAPI_KEY:
     print("Verifique se você criou o arquivo .env na pasta /back-end/.")
     exit() 
 
-# --- PASSO 1: QUESTÃO 1 (A API) ---
 def obter_tendencias_emprego(query: str) -> list[dict]:
     print(f"Buscando na API por: '{query}'...")
     querystring = {
@@ -52,7 +51,6 @@ def obter_tendencias_emprego(query: str) -> list[dict]:
         
     return [] 
 
-# --- PASSO 2: QUESTÃO 2 (O FILTRO) ---
 def filtrar_profissoes(profissoes: list[dict]) -> list[dict]:
     PALAVRAS_CHAVE_PROMISSORAS = ["automação", "iot", "segurança", "scanner", "operador", "logística", "robótica"]
     
@@ -71,7 +69,6 @@ def filtrar_profissoes(profissoes: list[dict]) -> list[dict]:
     print(f"Filtramos {len(profissoes)} para {len(profissoes_filtradas)} profissões relevantes.")
     return profissoes_filtradas
 
-# --- PASSO 3: QUESTÃO 3 (A RECURSÃO) ---
 def calcular_crescimento_total(profissoes: list[dict]) -> float:
     if not profissoes:
         return 0
@@ -82,7 +79,6 @@ def calcular_crescimento_total(profissoes: list[dict]) -> float:
 
     return taxa_simulada + calcular_crescimento_total(resto_da_lista)
 
-# --- PASSO 4: QUESTÃO 4 (A EXIBIÇÃO) ---
 def exibir_profissoes(profissoes: list[dict]):
  
     if not profissoes:

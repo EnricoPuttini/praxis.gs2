@@ -6,9 +6,6 @@ import Link from "next/link"
 export function Sidebar() {
   const navItems = [
     { icon: LayoutDashboard, label: "Dashboard", href: "#" },
-    { icon: Users, label: "Equipes", href: "#" },
-    { icon: BarChart3, label: "Relatórios", href: "#" },
-    { icon: Settings, label: "Configurações", href: "#" },
   ]
 
   return (
@@ -17,10 +14,10 @@ export function Sidebar() {
       <div className="p-6 border-b border-border">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">FM</span>
+            <span className="text-primary-foreground font-bold text-sm">PM</span>
           </div>
           <div>
-            <h1 className="font-bold text-foreground">FLUXO Mentor</h1>
+            <h1 className="font-bold text-foreground">Praxis Mentor</h1>
             <p className="text-xs text-muted-foreground">Gestão de Talentos</p>
           </div>
         </div>
@@ -40,14 +37,7 @@ export function Sidebar() {
         ))}
       </nav>
 
-      <div className="p-4 border-t border-border">
-        <div className="px-4 py-3 bg-secondary rounded-lg">
-          <p className="text-xs text-secondary-foreground">
-            <span className="font-bold">v0.1.0</span>
-          </p>
-          <p className="text-xs text-muted-foreground mt-1">Versão Alpha</p>
-        </div>
-      </div>
+      
     </aside>
   )
 }

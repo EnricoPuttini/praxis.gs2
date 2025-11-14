@@ -3,19 +3,36 @@
     "id": 1,
     "nome_completo": "Ana Silva",
     "cargo": "Operadora Sênior",
-    "foto_url": "/professional-woman-operator.jpg",
+    "foto_url": "/ana.webp",
     "status_atual": "Ativo",
     "turno": "Matutino",
     "info_pessoal": "Profissional dedicada com 5 anos de experiência",
     "info_academica": "Tecnólogo em Gestão de Operações",
-    "soft_skills": ["Liderança", "Comunicação", "Resolução de Problemas"],
-    "hobbies": ["Leitura", "Yoga", "Culinária"],
+    "soft_skills": [
+      "Liderança",
+      "Comunicação",
+      "Resolução de Problemas"
+    ],
+    "hobbies": [
+      "Leitura",
+      "Yoga",
+      "Culinária"
+    ],
     "trilha_atual": "Operações Avançadas",
     "progresso_percentual": 75,
     "habilidades_adquiridas": [
-      { "nome": "Gestão de Conflitos", "data_aquisicao": "2024-08-15" },
-      { "nome": "Análise de Dados", "data_aquisicao": "2024-07-20" },
-      { "nome": "Liderança de Equipe", "data_aquisicao": "2024-06-10" }
+      {
+        "nome": "Gestão de Conflitos",
+        "data_aquisicao": "2024-08-15"
+      },
+      {
+        "nome": "Análise de Dados",
+        "data_aquisicao": "2024-07-20"
+      },
+      {
+        "nome": "Liderança de Equipe",
+        "data_aquisicao": "2024-06-10"
+      }
     ],
     "alertas_pendentes": 0,
     "duvidas_recentes": []
@@ -24,61 +41,114 @@
     "id": 2,
     "nome_completo": "Carlos Mendes",
     "cargo": "Operador Pleno",
-    "foto_url": "/professional-man-operator.jpg",
+    "foto_url": "/carlos.jpg",
     "status_atual": "Ativo",
     "turno": "Vespertino",
     "info_pessoal": "Operador eficiente com 3 anos na função",
     "info_academica": "Técnico em Sistemas de Produção",
-    "soft_skills": ["Atenção ao Detalhe", "Trabalho em Equipe", "Adaptabilidade"],
-    "hobbies": ["Tecnologia", "Fotografia", "Esportes"],
+    "soft_skills": [
+      "Atenção ao Detalhe",
+      "Trabalho em Equipe",
+      "Adaptabilidade"
+    ],
+    "hobbies": [
+      "Tecnologia",
+      "Fotografia",
+      "Esportes"
+    ],
     "trilha_atual": "Desenvolvedor de Operações",
     "progresso_percentual": 55,
     "habilidades_adquiridas": [
-      { "nome": "Otimização de Processos", "data_aquisicao": "2024-09-01" },
-      { "nome": "Ferramentas Digitais", "data_aquisicao": "2024-08-05" }
+      {
+        "nome": "Otimização de Processos",
+        "data_aquisicao": "2024-09-01"
+      },
+      {
+        "nome": "Ferramentas Digitais",
+        "data_aquisicao": "2024-08-05"
+      }
     ],
     "alertas_pendentes": 1,
     "duvidas_recentes": [
-      { "pergunta": "Como implementar o novo sistema de controle?", "skill_relacionada": "Ferramentas Digitais" }
+      {
+        "pergunta": "Como implementar o novo sistema de controle?",
+        "skill_relacionada": "Ferramentas Digitais"
+      }
     ]
   },
   {
     "id": 3,
     "nome_completo": "Maria Costa",
     "cargo": "Operadora Trainee",
-    "foto_url": "/professional-woman-trainee.jpg",
+    "foto_url": "/maria.webp",
     "status_atual": "Offline",
     "turno": "Noturno",
     "info_pessoal": "Profissional em início de carreira",
     "info_academica": "Ensino Médio Completo, Cursos Profissionalizantes",
-    "soft_skills": ["Proatividade", "Disposição para Aprender", "Organização"],
-    "hobbies": ["Música", "Desenho", "Dança"],
+    "soft_skills": [
+      "Proatividade",
+      "Disposição para Aprender",
+      "Organização"
+    ],
+    "hobbies": [
+      "Música",
+      "Desenho",
+      "Dança"
+    ],
     "trilha_atual": "Operações Fundamentais",
     "progresso_percentual": 40,
-    "habilidades_adquiridas": [{ "nome": "Noções de Segurança", "data_aquisicao": "2024-09-15" }],
+    "habilidades_adquiridas": [
+      {
+        "nome": "Noções de Segurança",
+        "data_aquisicao": "2024-09-15"
+      }
+    ],
     "alertas_pendentes": 2,
     "duvidas_recentes": [
-      { "pergunta": "Qual é o protocolo de segurança correto?", "skill_relacionada": "Noções de Segurança" },
-      { "pergunta": "Como operar o equipamento corretamente?", "skill_relacionada": "Operações Básicas" }
+      {
+        "pergunta": "Qual é o protocolo de segurança correto?",
+        "skill_relacionada": "Noções de Segurança"
+      },
+      {
+        "pergunta": "Como operar o equipamento corretamente?",
+        "skill_relacionada": "Operações Básicas"
+      }
     ]
   },
   {
     "id": 4,
     "nome_completo": "Pedro Oliveira",
     "cargo": "Operador Sênior",
-    "foto_url": "/professional-man-senior-operator.jpg",
+    "foto_url": "/pedro.jpg",
     "status_atual": "Ativo",
     "turno": "Matutino",
     "info_pessoal": "Especialista em otimização de processos",
     "info_academica": "Engenheiro de Produção",
-    "soft_skills": ["Visão Estratégica", "Mentorado", "Inovação"],
-    "hobbies": ["Podcast", "Viagens", "Programação"],
+    "soft_skills": [
+      "Visão Estratégica",
+      "Mentorado",
+      "Inovação"
+    ],
+    "hobbies": [
+      "Podcast",
+      "Viagens",
+      "Programação"
+    ],
     "trilha_atual": "Liderança Estratégica",
     "progresso_percentual": 90,
     "habilidades_adquiridas": [
-      { "nome": "Gestão de Recursos", "data_aquisicao": "2024-05-20" },
-      { "nome": "Planejamento Estratégico", "data_aquisicao": "2024-04-10" },
-      { "nome": "Mentorado de Equipes", "data_aquisicao": "2024-03-15" }
+      {
+        "nome": "Gestão de Recursos",
+        "data_aquisicao": "2024-05-20"
+      },
+      {
+        "nome": "Planejamento Estratégico",
+        "data_aquisicao": "2024-04-10"
+      },
+      {
+        "nome": "Mentorado de Equipes",
+        "data_aquisicao": "2024-03-15"
+      }
     ],
     "alertas_pendentes": 0,
     "duvidas_recentes": []
@@ -87,18 +157,32 @@
     "id": 5,
     "nome_completo": "Juliana Ferreira",
     "cargo": "Operadora Plena",
-    "foto_url": "/professional-woman-full-operator.jpg",
+    "foto_url": "/juliana.jpg",
     "status_atual": "Ativo",
     "turno": "Vespertino",
     "info_pessoal": "Dedicada e sempre atualizada com tendências",
     "info_academica": "Bacharel em Administração",
-    "soft_skills": ["Criatividade", "Inteligência Emocional", "Comunicação"],
-    "hobbies": ["Arte", "Gastronomia", "Viagens"],
+    "soft_skills": [
+      "Criatividade",
+      "Inteligência Emocional",
+      "Comunicação"
+    ],
+    "hobbies": [
+      "Arte",
+      "Gastronomia",
+      "Viagens"
+    ],
     "trilha_atual": "Inovação em Processos",
     "progresso_percentual": 68,
     "habilidades_adquiridas": [
-      { "nome": "Design Thinking", "data_aquisicao": "2024-08-20" },
-      { "nome": "Apresentações Impactantes", "data_aquisicao": "2024-07-05" }
+      {
+        "nome": "Design Thinking",
+        "data_aquisicao": "2024-08-20"
+      },
+      {
+        "nome": "Apresentações Impactantes",
+        "data_aquisicao": "2024-07-05"
+      }
     ],
     "alertas_pendentes": 0,
     "duvidas_recentes": []
@@ -107,17 +191,41 @@
     "id": 6,
     "nome_completo": "Roberto Santos",
     "cargo": "Operador Trainee",
-    "foto_url": "/professional-man-trainee.jpg",
+    "foto_url": "/roberto.jpg",
     "status_atual": "Ativo",
     "turno": "Noturno",
     "info_pessoal": "Novo membro em processo de integração",
     "info_academica": "Técnico em Manutenção Industrial",
-    "soft_skills": ["Curiosidade", "Responsabilidade", "Precisão"],
-    "hobbies": ["Futebol", "Mecânica", "Filmes"],
+    "soft_skills": [
+      "Curiosidade",
+      "Responsabilidade",
+      "Precisão"
+    ],
+    "hobbies": [
+      "Futebol",
+      "Mecânica",
+      "Filmes"
+    ],
     "trilha_atual": "Operações Fundamentais",
     "progresso_percentual": 35,
-    "habilidades_adquiridas": [],
-    "alertas_pendentes": 1,
-    "duvidas_recentes": [{ "pergunta": "Qual é a sequência correta de operação?", "skill_relacionada": "Operações Básicas" }]
+    "habilidades_adquiridas": [
+      {
+        "nome": "Segurança SK-103 (Concluído por IA)",
+        "data_aquisicao": "2025-11-13"
+      }
+    ],
+    "alertas_pendentes": 0,
+    "duvidas_recentes": [
+      {
+        "pergunta": "Qual é a sequência correta de operação?",
+        "skill_relacionada": "Operações Básicas"
+      }
+    ],
+    "log_mentor_ia": [
+      {
+        "role": "mentor",
+        "text": "Olá, Roberto. Sou seu mentor de IA. Vi que você precisa aprender a 'Norma de Segurança SK-103'. Vamos começar?"
+      }     
+    ]
   }
 ]
