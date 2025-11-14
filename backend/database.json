@@ -8,14 +8,31 @@
     "turno": "Matutino",
     "info_pessoal": "Profissional dedicada com 5 anos de experiência",
     "info_academica": "Tecnólogo em Gestão de Operações",
-    "soft_skills": ["Liderança", "Comunicação", "Resolução de Problemas"],
-    "hobbies": ["Leitura", "Yoga", "Culinária"],
+    "soft_skills": [
+      "Liderança",
+      "Comunicação",
+      "Resolução de Problemas"
+    ],
+    "hobbies": [
+      "Leitura",
+      "Yoga",
+      "Culinária"
+    ],
     "trilha_atual": "Operações Avançadas",
     "progresso_percentual": 75,
     "habilidades_adquiridas": [
-      { "nome": "Gestão de Conflitos", "data_aquisicao": "2024-08-15" },
-      { "nome": "Análise de Dados", "data_aquisicao": "2024-07-20" },
-      { "nome": "Liderança de Equipe", "data_aquisicao": "2024-06-10" }
+      {
+        "nome": "Gestão de Conflitos",
+        "data_aquisicao": "2024-08-15"
+      },
+      {
+        "nome": "Análise de Dados",
+        "data_aquisicao": "2024-07-20"
+      },
+      {
+        "nome": "Liderança de Equipe",
+        "data_aquisicao": "2024-06-10"
+      }
     ],
     "alertas_pendentes": 0,
     "duvidas_recentes": []
@@ -29,17 +46,34 @@
     "turno": "Vespertino",
     "info_pessoal": "Operador eficiente com 3 anos na função",
     "info_academica": "Técnico em Sistemas de Produção",
-    "soft_skills": ["Atenção ao Detalhe", "Trabalho em Equipe", "Adaptabilidade"],
-    "hobbies": ["Tecnologia", "Fotografia", "Esportes"],
+    "soft_skills": [
+      "Atenção ao Detalhe",
+      "Trabalho em Equipe",
+      "Adaptabilidade"
+    ],
+    "hobbies": [
+      "Tecnologia",
+      "Fotografia",
+      "Esportes"
+    ],
     "trilha_atual": "Desenvolvedor de Operações",
     "progresso_percentual": 55,
     "habilidades_adquiridas": [
-      { "nome": "Otimização de Processos", "data_aquisicao": "2024-09-01" },
-      { "nome": "Ferramentas Digitais", "data_aquisicao": "2024-08-05" }
+      {
+        "nome": "Otimização de Processos",
+        "data_aquisicao": "2024-09-01"
+      },
+      {
+        "nome": "Ferramentas Digitais",
+        "data_aquisicao": "2024-08-05"
+      }
     ],
     "alertas_pendentes": 1,
     "duvidas_recentes": [
-      { "pergunta": "Como implementar o novo sistema de controle?", "skill_relacionada": "Ferramentas Digitais" }
+      {
+        "pergunta": "Como implementar o novo sistema de controle?",
+        "skill_relacionada": "Ferramentas Digitais"
+      }
     ]
   },
   {
@@ -51,15 +85,34 @@
     "turno": "Noturno",
     "info_pessoal": "Profissional em início de carreira",
     "info_academica": "Ensino Médio Completo, Cursos Profissionalizantes",
-    "soft_skills": ["Proatividade", "Disposição para Aprender", "Organização"],
-    "hobbies": ["Música", "Desenho", "Dança"],
+    "soft_skills": [
+      "Proatividade",
+      "Disposição para Aprender",
+      "Organização"
+    ],
+    "hobbies": [
+      "Música",
+      "Desenho",
+      "Dança"
+    ],
     "trilha_atual": "Operações Fundamentais",
     "progresso_percentual": 40,
-    "habilidades_adquiridas": [{ "nome": "Noções de Segurança", "data_aquisicao": "2024-09-15" }],
+    "habilidades_adquiridas": [
+      {
+        "nome": "Noções de Segurança",
+        "data_aquisicao": "2024-09-15"
+      }
+    ],
     "alertas_pendentes": 2,
     "duvidas_recentes": [
-      { "pergunta": "Qual é o protocolo de segurança correto?", "skill_relacionada": "Noções de Segurança" },
-      { "pergunta": "Como operar o equipamento corretamente?", "skill_relacionada": "Operações Básicas" }
+      {
+        "pergunta": "Qual é o protocolo de segurança correto?",
+        "skill_relacionada": "Noções de Segurança"
+      },
+      {
+        "pergunta": "Como operar o equipamento corretamente?",
+        "skill_relacionada": "Operações Básicas"
+      }
     ]
   },
   {
@@ -71,14 +124,31 @@
     "turno": "Matutino",
     "info_pessoal": "Especialista em otimização de processos",
     "info_academica": "Engenheiro de Produção",
-    "soft_skills": ["Visão Estratégica", "Mentorado", "Inovação"],
-    "hobbies": ["Podcast", "Viagens", "Programação"],
+    "soft_skills": [
+      "Visão Estratégica",
+      "Mentorado",
+      "Inovação"
+    ],
+    "hobbies": [
+      "Podcast",
+      "Viagens",
+      "Programação"
+    ],
     "trilha_atual": "Liderança Estratégica",
     "progresso_percentual": 90,
     "habilidades_adquiridas": [
-      { "nome": "Gestão de Recursos", "data_aquisicao": "2024-05-20" },
-      { "nome": "Planejamento Estratégico", "data_aquisicao": "2024-04-10" },
-      { "nome": "Mentorado de Equipes", "data_aquisicao": "2024-03-15" }
+      {
+        "nome": "Gestão de Recursos",
+        "data_aquisicao": "2024-05-20"
+      },
+      {
+        "nome": "Planejamento Estratégico",
+        "data_aquisicao": "2024-04-10"
+      },
+      {
+        "nome": "Mentorado de Equipes",
+        "data_aquisicao": "2024-03-15"
+      }
     ],
     "alertas_pendentes": 0,
     "duvidas_recentes": []
@@ -92,13 +162,27 @@
     "turno": "Vespertino",
     "info_pessoal": "Dedicada e sempre atualizada com tendências",
     "info_academica": "Bacharel em Administração",
-    "soft_skills": ["Criatividade", "Inteligência Emocional", "Comunicação"],
-    "hobbies": ["Arte", "Gastronomia", "Viagens"],
+    "soft_skills": [
+      "Criatividade",
+      "Inteligência Emocional",
+      "Comunicação"
+    ],
+    "hobbies": [
+      "Arte",
+      "Gastronomia",
+      "Viagens"
+    ],
     "trilha_atual": "Inovação em Processos",
     "progresso_percentual": 68,
     "habilidades_adquiridas": [
-      { "nome": "Design Thinking", "data_aquisicao": "2024-08-20" },
-      { "nome": "Apresentações Impactantes", "data_aquisicao": "2024-07-05" }
+      {
+        "nome": "Design Thinking",
+        "data_aquisicao": "2024-08-20"
+      },
+      {
+        "nome": "Apresentações Impactantes",
+        "data_aquisicao": "2024-07-05"
+      }
     ],
     "alertas_pendentes": 0,
     "duvidas_recentes": []
@@ -112,12 +196,84 @@
     "turno": "Noturno",
     "info_pessoal": "Novo membro em processo de integração",
     "info_academica": "Técnico em Manutenção Industrial",
-    "soft_skills": ["Curiosidade", "Responsabilidade", "Precisão"],
-    "hobbies": ["Futebol", "Mecânica", "Filmes"],
+    "soft_skills": [
+      "Curiosidade",
+      "Responsabilidade",
+      "Precisão"
+    ],
+    "hobbies": [
+      "Futebol",
+      "Mecânica",
+      "Filmes"
+    ],
     "trilha_atual": "Operações Fundamentais",
     "progresso_percentual": 35,
-    "habilidades_adquiridas": [],
-    "alertas_pendentes": 1,
-    "duvidas_recentes": [{ "pergunta": "Qual é a sequência correta de operação?", "skill_relacionada": "Operações Básicas" }]
+    "habilidades_adquiridas": [
+      {
+        "nome": "Segurança SK-103 (Concluído por IA)",
+        "data_aquisicao": "2025-11-13"
+      }
+    ],
+    "alertas_pendentes": 0,
+    "duvidas_recentes": [
+      {
+        "pergunta": "Qual é a sequência correta de operação?",
+        "skill_relacionada": "Operações Básicas"
+      }
+    ],
+    "log_mentor_ia": [
+      {
+        "role": "mentor",
+        "text": "Olá, Roberto. Sou seu mentor de IA. Vi que você precisa aprender a 'Norma de Segurança SK-103'. Vamos começar?"
+      },
+      {
+        "role": "user",
+        "text": "Sim, estou pronto. O que é a norma SK-103?"
+      },
+      {
+        "role": "mentor",
+        "text": "A Norma SK-103 define o procedimento padrão para o desligamento seguro e o bloqueio de energia de qualquer equipamento (LOTO), protegendo a todos durante a manutenção. Este é um conhecimento fundamental para sua segurança! Vamos começar com o Passo 1, entendido?"
+      },
+      {
+        "role": "user",
+        "text": "entendido"
+      },
+      {
+        "role": "mentor",
+        "text": "Parabéns!"
+      },
+      {
+        "role": "user",
+        "text": "oque seria o equipamento LOTO"
+      },
+      {
+        "role": "mentor",
+        "text": "O equipamento LOTO (Lockout/Tagout) é o conjunto físico de cadeados, travas e etiquetas que usamos para isolar e manter a energia de uma máquina desligada com segurança. Entender a função desses dispositivos é vital para proteger você e seus colegas durante a manutenção, entendido?"
+      },
+      {
+        "role": "user",
+        "text": "Perfeito, obrigado!"
+      },
+      {
+        "role": "mentor",
+        "text": "Excelente! O primeiro passo da Norma SK-103 é a 'Preparação': você deve notificar todos os colegas e supervisores afetados sobre o desligamento do equipamento. Essa comunicação prévia garante a segurança de toda a equipe, entendido?"
+      },
+      {
+        "role": "user",
+        "text": "ok"
+      },
+      {
+        "role": "mentor",
+        "text": "Excelente! O Passo 2 da SK-103 é o 'Desligamento': desligue o equipamento utilizando os procedimentos operacionais normais, como o botão de parada. Essa ação garante que a máquina esteja inativa antes de isolarmos a energia, entendido?"
+      },
+      {
+        "role": "user",
+        "text": "entendido"
+      },
+      {
+        "role": "mentor",
+        "text": "Excelente! O Passo 3 da Norma SK-103 é o 'Isolamento da Energia': você deve localizar e desativar todas as fontes de energia, como disjuntores elétricos ou válvulas pneumáticas.\n\nEssa etapa é crucial, pois garante que a máquina esteja fisicamente desconectada e não possa ser ligada acidentalmente, entendido?"
+      }
+    ]
   }
 ]

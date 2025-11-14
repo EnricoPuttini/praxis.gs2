@@ -5,28 +5,29 @@ import os
 import google.generativeai as genai
 from dotenv import load_dotenv
 
+# --- 1. CONFIGURAÇÃO (O que aprendemos no teste) ---
 print("Carregando o servidor de simulação (com IA)...")
-load_dotenv()
+load_dotenv() # Carrega o .env
 
 app = Flask(__name__)
-CORS(app) 
+CORS(app) # Permite que o React (localhost:3000) fale com o Python (localhost:5000)
 
 DATABASE_FILE = 'database.json'
 
-
+# --- 2. CONFIGURAÇÃO DA IA (O que aprendemos no teste) ---
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     print("ERRO CRÍTICO: 'GEMINI_API_KEY' não encontrada no .env.")
-    print("O servidor não pode iniciar a IA.")
-
-
-try:
-    genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel('models/gemini-flash-latest')
-    print("IA do Gemini configurada e pronta (modelo: gemini-flash-latest).")
-except Exception as e:
-    print(f"ERRO ao configurar a IA: {e}")
-    model = None 
+else:
+    try:
+        genai.configure(api_key=GEMINI_API_KEY)
+        model = genai.GenerativeModel('models/gemini-flash-latest') # O modelo que funcionou
+        print("IA do Gemini configurada e pronta (modelo: gemini-flash-latest).")
+    except Exception as e:
+        print(f"ERRO ao configurar a IA: {e}")
+        model = None
+    
+# --- 3. ENDPOINT DE LEITURA (PARA O DASHBOARD PRINCIPAL) ---
 @app.route('/api/operators', methods=['GET'])
 def get_operators():
     try:
@@ -36,8 +37,28 @@ def get_operators():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# --- 4. O NOVO ENDPOINT "INTELIGENTE" (A Mágica) ---
-# Ele substitui o antigo "/api/simulate_skill"
+# --- 4. (NOVO ENDPOINT) ENDPOINT DE LEITURA ÚNICA (PARA O SIMULADOR) ---
+@app.route('/api/operators/<int:user_id>', methods=['GET'])
+def get_operator_by_id(user_id):
+    try:
+        with open(DATABASE_FILE, 'r', encoding='utf-8') as f:
+            operators = json.load(f)
+        
+        target_operator = None
+        for op in operators:
+            if op['id'] == user_id:
+                target_operator = op
+                break
+        
+        if target_operator:
+            return jsonify(target_operator)
+        else:
+            return jsonify({"error": "Operador não encontrado"}), 404
+            
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# --- 5. O ENDPOINT "INTELIGENTE" (A MÁGICA DO CHAT) ---
 @app.route('/api/mentor_chat', methods=['POST'])
 def mentor_chat():
     if not model:
@@ -61,9 +82,9 @@ def mentor_chat():
         if not target_operator:
             return jsonify({"error": "Operador não encontrado"}), 404
 
-        conversation_history = target_operator.get('log_mentor_ia', []) 
-        conversation_history.append({"role": "user", "text": user_response}) 
-
+        conversation_history = target_operator.get('log_mentor_ia', [])
+        conversation_history.append({"role": "user", "text": user_response})
+        
         prompt = (
             "Você é o 'Mentor de Posto', um mentor de IA para trabalhadores de chão de fábrica. "
             "Seu objetivo é ensinar a 'Norma de Segurança SK-103' para o trainee Roberto. "
@@ -71,11 +92,11 @@ def mentor_chat():
             "Se o usuário disser 'entendido', 'sim' ou 'pronto', responda com 'Parabéns!' e marque o treino como completo."
             "\n--- HISTÓRICO DA CONVERSA ---\n"
         )
-
+        
         for message in conversation_history:
             prompt += f"{message['role']}: {message['text']}\n"
         
-        prompt += "mentor: " 
+        prompt += "mentor: "
 
         print("Chamando a IA do Gemini...")
         ai_response = model.generate_content(prompt)
@@ -89,17 +110,19 @@ def mentor_chat():
             target_operator['alertas_pendentes'] = 0
             target_operator['habilidades_adquiridas'].append({
                 "nome": "Segurança SK-103 (Concluído por IA)",
-                "data_aquisicao": "2025-11-13" # (Data de hoje)
+                "data_aquisicao": "2025-11-13" 
             })
 
         with open(DATABASE_FILE, 'w', encoding='utf-8') as f:
             json.dump(operators, f, indent=2, ensure_ascii=False)
             
+        # Retorna o *novo* log de chat para a UI do React
         return jsonify({"success": True, "new_chat_log": conversation_history}), 200
 
     except Exception as e:
         print(f"ERRO no endpoint /api/mentor_chat: {e}")
         return jsonify({"error": str(e)}), 500
 
+# --- Rode o Servidor ---
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

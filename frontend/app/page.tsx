@@ -1,13 +1,14 @@
-"use client"
+"use client" // <--- 1. A SUA REQUISIÇÃO (ADICIONADA!)
 
 import { useState, useEffect } from "react"
-// Seus imports de componentes (DarkModeToggle, Sidebar, etc.)
+// Seus imports de componentes
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
 import { Sidebar } from "@/components/sidebar"
 import { FilterBar } from "@/components/filter-bar"
 import { ProfileCard } from "@/components/profile-card"
 import { DetailModal } from "@/components/detail-modal"
 
+// O "Contrato" (Planta Baixa)
 export type Operator = {
   id: number;
   nome_completo: string;
@@ -24,6 +25,7 @@ export type Operator = {
   habilidades_adquiridas: { nome: string; data_aquisicao: string }[];
   alertas_pendentes: number;
   duvidas_recentes: { pergunta: string; skill_relacionada: string }[];
+  log_mentor_ia?: { role: string; text: string }[];
 };
 
 type FilterState = {
@@ -35,23 +37,17 @@ type FilterState = {
 export default function Dashboard() {
   const [darkMode, setDarkMode] = useState(false)
   const [selectedOperator, setSelectedOperator] = useState<Operator | null>(null)
-  
-  // --- (ETAPA 2: O ESTADO "VIVO") ---
-  // Comece com arrays vazios. Eles serão preenchidos pela API.
-  const [allOperators, setAllOperators] = useState<Operator[]>([]) // O "Master"
-  const [filteredOperators, setFilteredOperators] = useState<Operator[]>([]) // O "Exibido"
-  
+  const [allOperators, setAllOperators] = useState<Operator[]>([])
+  const [filteredOperators, setFilteredOperators] = useState<Operator[]>([])
   const [filters, setFilters] = useState<FilterState>({
     cargo: "",
     turno: "",
     nome: "",
   })
-  const [isLoading, setIsLoading] = useState(true); // Estado de "Carregando..."
+  const [isLoading, setIsLoading] = useState(true);
 
-  // --- (ETAPA 3: O "FETCH" - A CONEXÃO) ---
-  // Isso roda UMA VEZ quando o componente carrega
+  // O "Fetch" dos dados (Conexão com a "Fábrica" Python)
   useEffect(() => {
-    // A URL da sua "Fábrica" Python
     const API_URL = "http://127.0.0.1:5000/api/operators";
     
     console.log("Buscando dados da API...");
@@ -60,16 +56,17 @@ export default function Dashboard() {
       .then(response => response.json())
       .then((data: Operator[]) => {
         console.log("Dados recebidos:", data);
-        setAllOperators(data); // Salva a lista "master"
-        setFilteredOperators(data); // Salva a lista que será exibida
+        setAllOperators(data);
+        setFilteredOperators(data);
         setIsLoading(false); 
       })
       .catch(error => {
         console.error("ERRO AO BUSCAR DADOS DO BACK-END:", error);
-        setIsLoading(false); // Desliga o "Carregando" mesmo se der erro
+        setIsLoading(false);
       });
   }, []); // O array vazio [] significa "rode isso apenas uma vez"
 
+  // O "Hook" do Dark Mode
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark")
@@ -78,10 +75,10 @@ export default function Dashboard() {
     }
   }, [darkMode])
 
-  // Esta função agora filtra a lista "allOperators"
+  // A Lógica dos Filtros
   const handleFilter = (newFilters: FilterState) => {
     setFilters(newFilters)
-    let result = allOperators; // Começa com a lista "master"
+    let result = allOperators; 
 
     if (newFilters.cargo) {
       result = result.filter((op) => op.cargo === newFilters.cargo)
@@ -92,16 +89,40 @@ export default function Dashboard() {
     if (newFilters.nome) {
       result = result.filter((op) => op.nome_completo.toLowerCase().includes(newFilters.nome.toLowerCase()))
     }
-
-    setFilteredOperators(result) // Atualiza a lista *exibida*
+    setFilteredOperators(result)
   }
 
-  // Esta função agora lê da lista "master"
   const getUniqueValues = (key: "cargo" | "turno") => {
     return Array.from(new Set(allOperators.map((op: Operator) => op[key])))
   }
 
-  // --- (ETAPA 4: A TELA DE "CARREGANDO...") ---
+  // --- 2. O "BOTÃO MÁGICO" (A LÓGICA DA SIMULAÇÃO) ---
+  const handleSimulateAI = async () => {
+    console.log("Simulando chamada para a IA...");
+    // Dê um feedback imediato ao usuário
+    alert("Iniciando simulação de treino para 'Roberto Santos'...\n\nAperte OK. A IA está 'pensando'.\n\nQuando o 'alerta' de sucesso aparecer, aperte F5 para ver o resultado.");
+    
+    try {
+      // Este é o "fetch" (o "POST" do F12) que fizemos antes
+      await fetch('http://127.0.0.1:5000/api/mentor_chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          user_id: 6, // O ID do Roberto Santos
+          response: "Sim, estou pronto. O que é a norma SK-103?"
+        })
+      });
+      
+      console.log("Simulação enviada com sucesso!");
+      alert("Simulação Concluída!\n\nA IA do Gemini respondeu e o 'diário' do Roberto foi atualizado.\n\nAperte F5 ou 'Recarregar' para ver a mudança.");
+
+    } catch (error) {
+      console.error("Erro ao simular:", error);
+      alert("Erro ao conectar com o servidor de simulação (Python). Verifique o terminal.");
+    }
+  }
+  // --- FIM DA LÓGICA ---
+
   if (isLoading) {
     return (
       <div className="flex h-screen bg-background items-center justify-center">
@@ -114,13 +135,28 @@ export default function Dashboard() {
     <div className="flex h-screen bg-background">
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Header */}
+        
+        {/* --- (O HEADER ATUALIZADO) --- */}
         <header className="border-b border-border bg-card shadow-sm">
           <div className="flex items-center justify-between px-6 py-4">
             <h1 className="text-2xl font-bold text-foreground">Dashboard da Equipe</h1>
-            <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+            
+            <div className="flex items-center gap-4">
+              {/* O "Botão Mágico" que chama a função 'handleSimulateAI' */}
+              <button
+                onClick={handleSimulateAI}
+                className="px-4 py-2 rounded-lg bg-destructive text-destructive-foreground hover:bg-destructive/90 transition-colors font-medium text-xs"
+              >
+                Simular Treino da IA (Roberto)
+              </button>
+              
+              <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+            </div>
+            
           </div>
         </header>
+        {/* --- (FIM DO HEADER ATUALIZADO) --- */}
+
 
         {/* Main Content */}
         <main className="flex-1 overflow-auto">

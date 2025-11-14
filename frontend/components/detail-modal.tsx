@@ -1,14 +1,14 @@
-"use client"
+"use client" // <--- 1. CORREÇÃO: ADICIONADO AQUI
 
 import { useState } from "react"
 import { X, AlertCircle, TrendingUp } from "lucide-react"
 import Image from "next/image"
-import { Operator } from "@/app/page"
+import { Operator } from "@/app/page" // Certifique-se que este caminho está correto
 
 type DetailModalProps = {
-  operator: Operator; 
-  onClose: () => void; 
-};
+  operator: Operator
+  onClose: () => void
+}
 
 export function DetailModal({ operator, onClose }: DetailModalProps) {
   const [activeTab, setActiveTab] = useState("perfil")
@@ -42,7 +42,9 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
           </button>
         </div>
 
+        {/* Content */}
         <div className="flex-1 overflow-auto">
+          {/* Top Section with Avatar and Basic Info */}
           <div className="p-6 border-b border-border bg-secondary/20">
             <div className="flex gap-6 mb-6">
               <div className="relative w-24 h-24 rounded-full overflow-hidden border-3 border-primary flex-shrink-0">
@@ -71,6 +73,7 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
             </div>
           </div>
 
+          {/* Tabs */}
           <div className="flex border-b border-border bg-card">
             {tabs.map((tab) => (
               <button
@@ -87,7 +90,9 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
             ))}
           </div>
 
+          {/* Tab Content */}
           <div className="p-6">
+            {/* Perfil Tab */}
             {activeTab === "perfil" && (
               <div className="space-y-6">
                 <div>
@@ -124,6 +129,7 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
               </div>
             )}
 
+            {/* Aprendizado & Progresso Tab */}
             {activeTab === "aprendizado" && (
               <div className="space-y-6">
                 <div>
@@ -165,8 +171,11 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
               </div>
             )}
 
+            {/* Insights da IA Tab */}
             {activeTab === "insights" && (
               <div className="space-y-6">
+                
+                {/* --- Bloco "Alertas Pendentes" --- */}
                 {operator.alertas_pendentes > 0 && (
                   <div className="flex gap-3 p-4 bg-destructive/10 border border-destructive/30 rounded-lg">
                     <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
@@ -182,6 +191,41 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
                   </div>
                 )}
 
+                {/* --- 2. NOVO BLOCO "LOG DO MENTOR IA" (O "PALCO") --- */}
+                {/* Ele verifica se 'log_mentor_ia' existe antes de tentar renderizar */}
+                {operator.log_mentor_ia && operator.log_mentor_ia.length > 0 && (
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground mb-3">
+                      Log do Mentor IA
+                    </h4>
+                    <div className="space-y-3 p-4 bg-muted/50 rounded-lg max-h-48 overflow-auto border border-border">
+                      
+                      {operator.log_mentor_ia.map((chat, idx) => (
+                        <div 
+                          key={idx} 
+                          className={`flex ${
+                            chat.role === 'user' ? 'justify-end' : 'justify-start'
+                          }`}
+                        >
+                          <div className={`p-3 rounded-lg max-w-[80%] ${
+                            chat.role === 'user' 
+                              ? 'bg-primary text-primary-foreground' 
+                              : 'bg-secondary text-secondary-foreground'
+                          }`}>
+                            <span className="font-bold capitalize text-xs block mb-1">
+                              {chat.role === 'user' ? operator.nome_completo.split(' ')[0] : 'Mentor IA'}
+                            </span>
+                            <p>{chat.text}</p>
+                          </div>
+                        </div>
+                      ))}
+                      
+                    </div>
+                  </div>
+                )}
+                {/* --- FIM DO NOVO BLOCO --- */}
+
+                {/* --- Bloco "Dúvidas Recentes" --- */}
                 <div>
                   <h4 className="text-lg font-semibold text-foreground mb-3">Dúvidas Recentes</h4>
                   {operator.duvidas_recentes.length > 0 ? (
@@ -201,9 +245,11 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
                 </div>
               </div>
             )}
+            
           </div>
         </div>
 
+        {/* Footer */}
         <div className="border-t border-border p-4 bg-background/50 flex justify-end gap-3">
           <button
             onClick={onClose}
