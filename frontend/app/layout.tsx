@@ -8,7 +8,7 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "FLUXO Mentor - Gestão de Talentos",
+  title: "PRAXIS Mentor - Gestão de Talentos",
   description: "Dashboard de gestão de talentos para a plataforma FLUXO Mentor",
   generator: "v0.app",
   icons: {

@@ -1,9 +1,9 @@
-"use client" // <--- 1. CORREÇÃO: ADICIONADO AQUI
+"use client" 
 
 import { useState } from "react"
 import { X, AlertCircle, TrendingUp } from "lucide-react"
 import Image from "next/image"
-import { Operator } from "@/app/page" // Certifique-se que este caminho está correto
+import { Operator } from "@/app/page" 
 
 type DetailModalProps = {
   operator: Operator
@@ -30,7 +30,6 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
         className="bg-card border border-border rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border bg-background/50">
           <h2 className="text-2xl font-bold text-foreground">Detalhes do Operador</h2>
           <button
@@ -42,9 +41,7 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
           </button>
         </div>
 
-        {/* Content */}
         <div className="flex-1 overflow-auto">
-          {/* Top Section with Avatar and Basic Info */}
           <div className="p-6 border-b border-border bg-secondary/20">
             <div className="flex gap-6 mb-6">
               <div className="relative w-24 h-24 rounded-full overflow-hidden border-3 border-primary flex-shrink-0">
@@ -73,7 +70,6 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
             </div>
           </div>
 
-          {/* Tabs */}
           <div className="flex border-b border-border bg-card">
             {tabs.map((tab) => (
               <button
@@ -90,9 +86,7 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
             ))}
           </div>
 
-          {/* Tab Content */}
           <div className="p-6">
-            {/* Perfil Tab */}
             {activeTab === "perfil" && (
               <div className="space-y-6">
                 <div>
@@ -129,7 +123,6 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
               </div>
             )}
 
-            {/* Aprendizado & Progresso Tab */}
             {activeTab === "aprendizado" && (
               <div className="space-y-6">
                 <div>
@@ -171,11 +164,9 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
               </div>
             )}
 
-            {/* Insights da IA Tab */}
             {activeTab === "insights" && (
               <div className="space-y-6">
                 
-                {/* --- Bloco "Alertas Pendentes" --- */}
                 {operator.alertas_pendentes > 0 && (
                   <div className="flex gap-3 p-4 bg-destructive/10 border border-destructive/30 rounded-lg">
                     <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
@@ -190,17 +181,14 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
                     </div>
                   </div>
                 )}
-
-                {/* --- 2. NOVO BLOCO "LOG DO MENTOR IA" (O "PALCO") --- */}
-                {/* Ele verifica se 'log_mentor_ia' existe antes de tentar renderizar */}
-                {operator.log_mentor_ia && operator.log_mentor_ia.length > 0 && (
+                {operator.log_mentor_ia && operator.log_mentor_ia.length > 0 ? (
                   <div>
                     <h4 className="text-lg font-semibold text-foreground mb-3">
                       Log do Mentor IA
                     </h4>
                     <div className="space-y-3 p-4 bg-muted/50 rounded-lg max-h-48 overflow-auto border border-border">
                       
-                      {operator.log_mentor_ia.map((chat, idx) => (
+                      {operator.log_mentor_ia.map((chat: any, idx: number) => (
                         <div 
                           key={idx} 
                           className={`flex ${
@@ -222,15 +210,14 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
                       
                     </div>
                   </div>
+                ) : (
+                   <p className="text-muted-foreground">Nenhum log de IA iniciado para este operador.</p>
                 )}
-                {/* --- FIM DO NOVO BLOCO --- */}
-
-                {/* --- Bloco "Dúvidas Recentes" --- */}
                 <div>
                   <h4 className="text-lg font-semibold text-foreground mb-3">Dúvidas Recentes</h4>
                   {operator.duvidas_recentes.length > 0 ? (
                     <div className="space-y-2">
-                      {operator.duvidas_recentes.map((duvida, idx) => (
+                      {operator.duvidas_recentes.map((duvida: any, idx: number) => (
                         <div key={idx} className="p-4 bg-muted rounded-lg border border-border">
                           <p className="text-foreground font-medium mb-2">{duvida.pergunta}</p>
                           <span className="inline-flex items-center rounded-md border border-border px-2.5 py-0.5 text-xs font-semibold text-foreground">
@@ -248,19 +235,28 @@ export function DetailModal({ operator, onClose }: DetailModalProps) {
             
           </div>
         </div>
-
-        {/* Footer */}
-        <div className="border-t border-border p-4 bg-background/50 flex justify-end gap-3">
-          <button
-            onClick={onClose}
-            className="px-4 py-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors font-medium"
-          >
-            Fechar
-          </button>
-          <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium">
+        <div className="border-t border-border p-4 bg-background/50 flex justify-between items-center">
+          <button className="px-4 py-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors font-medium">
             Editar Perfil
           </button>
+          <div className="flex gap-3">
+            <button
+              onClick={onClose}
+              className="px-4 py-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors font-medium"
+            >
+              Fechar
+            </button>
+            <button
+              onClick={() => {
+                window.open(`/mentor/${operator.id}`, '_blank');
+              }}
+              className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
+            >
+              Simular Treino ao Vivo
+            </button>
+          </div>
         </div>
+        
       </div>
     </div>
   )

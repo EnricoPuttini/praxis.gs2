@@ -5,29 +5,26 @@ import os
 import google.generativeai as genai
 from dotenv import load_dotenv
 
-# --- 1. CONFIGURAÇÃO (O que aprendemos no teste) ---
 print("Carregando o servidor de simulação (com IA)...")
-load_dotenv() # Carrega o .env
+load_dotenv() 
 
 app = Flask(__name__)
-CORS(app) # Permite que o React (localhost:3000) fale com o Python (localhost:5000)
+CORS(app) 
 
 DATABASE_FILE = 'database.json'
 
-# --- 2. CONFIGURAÇÃO DA IA (O que aprendemos no teste) ---
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     print("ERRO CRÍTICO: 'GEMINI_API_KEY' não encontrada no .env.")
 else:
     try:
         genai.configure(api_key=GEMINI_API_KEY)
-        model = genai.GenerativeModel('models/gemini-flash-latest') # O modelo que funcionou
+        model = genai.GenerativeModel('models/gemini-flash-latest') 
         print("IA do Gemini configurada e pronta (modelo: gemini-flash-latest).")
     except Exception as e:
         print(f"ERRO ao configurar a IA: {e}")
         model = None
-    
-# --- 3. ENDPOINT DE LEITURA (PARA O DASHBOARD PRINCIPAL) ---
+
 @app.route('/api/operators', methods=['GET'])
 def get_operators():
     try:
@@ -37,7 +34,6 @@ def get_operators():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# --- 4. (NOVO ENDPOINT) ENDPOINT DE LEITURA ÚNICA (PARA O SIMULADOR) ---
 @app.route('/api/operators/<int:user_id>', methods=['GET'])
 def get_operator_by_id(user_id):
     try:
@@ -58,7 +54,6 @@ def get_operator_by_id(user_id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# --- 5. O ENDPOINT "INTELIGENTE" (A MÁGICA DO CHAT) ---
 @app.route('/api/mentor_chat', methods=['POST'])
 def mentor_chat():
     if not model:
@@ -115,14 +110,12 @@ def mentor_chat():
 
         with open(DATABASE_FILE, 'w', encoding='utf-8') as f:
             json.dump(operators, f, indent=2, ensure_ascii=False)
-            
-        # Retorna o *novo* log de chat para a UI do React
+
         return jsonify({"success": True, "new_chat_log": conversation_history}), 200
 
     except Exception as e:
         print(f"ERRO no endpoint /api/mentor_chat: {e}")
         return jsonify({"error": str(e)}), 500
 
-# --- Rode o Servidor ---
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

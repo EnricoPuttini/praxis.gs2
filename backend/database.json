@@ -3,7 +3,7 @@
     "id": 1,
     "nome_completo": "Ana Silva",
     "cargo": "Operadora Sênior",
-    "foto_url": "/professional-woman-operator.jpg",
+    "foto_url": "/ana.webp",
     "status_atual": "Ativo",
     "turno": "Matutino",
     "info_pessoal": "Profissional dedicada com 5 anos de experiência",
@@ -41,7 +41,7 @@
     "id": 2,
     "nome_completo": "Carlos Mendes",
     "cargo": "Operador Pleno",
-    "foto_url": "/professional-man-operator.jpg",
+    "foto_url": "/carlos.jpg",
     "status_atual": "Ativo",
     "turno": "Vespertino",
     "info_pessoal": "Operador eficiente com 3 anos na função",
@@ -80,7 +80,7 @@
     "id": 3,
     "nome_completo": "Maria Costa",
     "cargo": "Operadora Trainee",
-    "foto_url": "/professional-woman-trainee.jpg",
+    "foto_url": "/maria.webp",
     "status_atual": "Offline",
     "turno": "Noturno",
     "info_pessoal": "Profissional em início de carreira",
@@ -119,7 +119,7 @@
     "id": 4,
     "nome_completo": "Pedro Oliveira",
     "cargo": "Operador Sênior",
-    "foto_url": "/professional-man-senior-operator.jpg",
+    "foto_url": "/pedro.jpg",
     "status_atual": "Ativo",
     "turno": "Matutino",
     "info_pessoal": "Especialista em otimização de processos",
@@ -157,7 +157,7 @@
     "id": 5,
     "nome_completo": "Juliana Ferreira",
     "cargo": "Operadora Plena",
-    "foto_url": "/professional-woman-full-operator.jpg",
+    "foto_url": "/juliana.jpg",
     "status_atual": "Ativo",
     "turno": "Vespertino",
     "info_pessoal": "Dedicada e sempre atualizada com tendências",
@@ -191,7 +191,7 @@
     "id": 6,
     "nome_completo": "Roberto Santos",
     "cargo": "Operador Trainee",
-    "foto_url": "/professional-man-trainee.jpg",
+    "foto_url": "/roberto.jpg",
     "status_atual": "Ativo",
     "turno": "Noturno",
     "info_pessoal": "Novo membro em processo de integração",
@@ -225,55 +225,7 @@
       {
         "role": "mentor",
         "text": "Olá, Roberto. Sou seu mentor de IA. Vi que você precisa aprender a 'Norma de Segurança SK-103'. Vamos começar?"
-      },
-      {
-        "role": "user",
-        "text": "Sim, estou pronto. O que é a norma SK-103?"
-      },
-      {
-        "role": "mentor",
-        "text": "A Norma SK-103 define o procedimento padrão para o desligamento seguro e o bloqueio de energia de qualquer equipamento (LOTO), protegendo a todos durante a manutenção. Este é um conhecimento fundamental para sua segurança! Vamos começar com o Passo 1, entendido?"
-      },
-      {
-        "role": "user",
-        "text": "entendido"
-      },
-      {
-        "role": "mentor",
-        "text": "Parabéns!"
-      },
-      {
-        "role": "user",
-        "text": "oque seria o equipamento LOTO"
-      },
-      {
-        "role": "mentor",
-        "text": "O equipamento LOTO (Lockout/Tagout) é o conjunto físico de cadeados, travas e etiquetas que usamos para isolar e manter a energia de uma máquina desligada com segurança. Entender a função desses dispositivos é vital para proteger você e seus colegas durante a manutenção, entendido?"
-      },
-      {
-        "role": "user",
-        "text": "Perfeito, obrigado!"
-      },
-      {
-        "role": "mentor",
-        "text": "Excelente! O primeiro passo da Norma SK-103 é a 'Preparação': você deve notificar todos os colegas e supervisores afetados sobre o desligamento do equipamento. Essa comunicação prévia garante a segurança de toda a equipe, entendido?"
-      },
-      {
-        "role": "user",
-        "text": "ok"
-      },
-      {
-        "role": "mentor",
-        "text": "Excelente! O Passo 2 da SK-103 é o 'Desligamento': desligue o equipamento utilizando os procedimentos operacionais normais, como o botão de parada. Essa ação garante que a máquina esteja inativa antes de isolarmos a energia, entendido?"
-      },
-      {
-        "role": "user",
-        "text": "entendido"
-      },
-      {
-        "role": "mentor",
-        "text": "Excelente! O Passo 3 da Norma SK-103 é o 'Isolamento da Energia': você deve localizar e desativar todas as fontes de energia, como disjuntores elétricos ou válvulas pneumáticas.\n\nEssa etapa é crucial, pois garante que a máquina esteja fisicamente desconectada e não possa ser ligada acidentalmente, entendido?"
-      }
+      }     
     ]
   }
 ]
