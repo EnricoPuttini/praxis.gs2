@@ -212,6 +212,10 @@
       {
         "nome": "Segurança SK-103 (Concluído por IA)",
         "data_aquisicao": "2025-11-13"
+      },
+      {
+        "nome": "Segurança SK-103 (Concluído por IA)",
+        "data_aquisicao": "2025-11-13"
       }
     ],
     "alertas_pendentes": 0,
@@ -225,7 +229,31 @@
       {
         "role": "mentor",
         "text": "Olá, Roberto. Sou seu mentor de IA. Vi que você precisa aprender a 'Norma de Segurança SK-103'. Vamos começar?"
-      }     
+      },
+      {
+        "role": "user",
+        "text": "SIM"
+      },
+      {
+        "role": "mentor",
+        "text": "Vamos focar no essencial: A Norma SK-103 exige o uso constante e correto de EPIs (Equipamentos de Proteção Individual) em toda a área de produção, garantindo sua proteção contra riscos imediatos. Essa atenção aos detalhes é fundamental para manter um ambiente de trabalho seguro para todos. Entendido?"
+      },
+      {
+        "role": "user",
+        "text": "Repetir"
+      },
+      {
+        "role": "mentor",
+        "text": "O ponto crucial da SK-103 é a obrigatoriedade do uso contínuo e adequado de todos os EPIs. Essa prática proativa minimiza riscos e assegura que você possa realizar seu trabalho com total tranquilidade. Entendido?"
+      },
+      {
+        "role": "user",
+        "text": "SIM"
+      },
+      {
+        "role": "mentor",
+        "text": "Parabéns!"
+      }
     ]
   }
 ]
